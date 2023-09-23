@@ -1,9 +1,9 @@
 import {View,Text,TextInput,TouchableOpacity} from 'react-native';
-import {useState} from 'react';
+import {useState,useRef} from 'react';
 import useStore from "./datas/data";
 import useRoomStore from "./datas/room";
 import Gstyles from "../assets/styles/styles";
-import Button from "./Button";
+import Button from "./Buttons/Button";
 
 const DownEvents=()=>{
     const {datas, setDatas} = useStore();
@@ -21,7 +21,9 @@ const DownEvents=()=>{
                         style={Gstyles.textInput} 
                         value={playerName}
                         onChangeText={setPlayerName}
-                        placeholder="Scrivilo qui scemo"/>
+                        placeholder="Scrivilo qui scemo"
+                    />
+                    
                     <TouchableOpacity 
                         onPress={()=> {setDatas({counter:datas.counter+1, names:{player:playerName}})} } 
                         style={[Gstyles.button, { backgroundColor:'green' }]}

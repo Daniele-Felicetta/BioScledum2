@@ -22,6 +22,13 @@ const patStyle:any={
         alignItems: 'center',
         justifyContent: 'space-evenly'
         
-    }
+    }, 
+    button:{
+        opacity: 0.8,
+        padding: 10,
+        borderRadius: 5,
+        width:"30%",
+        height:"50"
+    },
 }
 export default patStyle

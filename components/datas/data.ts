@@ -5,7 +5,7 @@ const useStore = create<any>()((set) => ({
         names:{
             player:"Gigi", 
         },
-        counter:0
+        counter:6
     },
  
     setDatas:(newDatas:any)=>set((state:any)=>({

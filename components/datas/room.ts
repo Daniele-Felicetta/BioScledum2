@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import randomName from './names'
 
 const useRoomStore = create<any>()((set) => ({
     roomData:{
@@ -52,11 +53,9 @@ const useRoomStore = create<any>()((set) => ({
             text2:"Adesso devi decidere chi attaccare",
 
             enemies:{
-                number:2,
-                who:["bull, knigth"]
+                who:["bull", "knight"],
+                names:[randomName(),randomName()]
             },
-            
-          
         }
     }
 }))

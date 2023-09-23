@@ -12,9 +12,13 @@ const Gstyles:any = {
         backgroundColor: 'rgb(50,50,50)'
     },
     
-    renderContainer:{
+    upContainer:{
         flex:2,
-        flexDirection: 'column'
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        width: "100%",
+        
     },
     textContainer: {
         backgroundColor: "rgba(225,170,50,0.5)",
@@ -38,11 +42,11 @@ const Gstyles:any = {
         width: "100%",
     },
     button:{
-        opacity: 0.8,
-        padding: 10,
-        borderRadius: 5,
-        width:"30%",
-        height:50
+        ...patStyle.button
+    },
+    buttonAttack:{
+        ...patStyle.button,
+        height:80
     },
     buttonText: {
         color: 'white',
@@ -66,6 +70,12 @@ const Gstyles:any = {
         textAlign: 'center',
         fontWeight:'bold',
         fontSize: 30
+    },
+    combatContainer:{
+        width: "100%",
+        flex:1,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
     }
   
 }
