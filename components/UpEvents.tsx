@@ -1,10 +1,9 @@
 import useStore from "./datas/data";
-import useRoomStore from "./datas/room";
+import roomData from "./datas/room";
 import {View,Text,Image} from 'react-native'
 
 const UpEvents=()=>{
     const {datas, setDatas} = useStore();
-    const {roomData}= useRoomStore();
     const counterButton= datas.counter;
     
     return (

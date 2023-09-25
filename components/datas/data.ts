@@ -8,13 +8,11 @@ const useStore = create<any>()((set) => ({
     setDatas:(newDatas:any)=>set((state:any)=>({
         datas: {...state.datas, ...newDatas},
     })),
-
-
     combatDatas:{
-        
+
     },
     setCombatDatas:(newDatas:any)=>set((state:any)=>({
-        datas: {...state.datas, ...newDatas},
+        datas: {...state.combatDatas, ...newDatas},
     })),
 }))
  

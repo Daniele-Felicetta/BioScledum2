@@ -1,8 +1,6 @@
-import { create } from 'zustand'
+
 import generateEnemies from './generateEnemies';
-const useRoomStore = create<any>()((set) => ({
-    
-    roomData:{
+    const roomData={
         0: {
             text:"Benvenuto avventuriero sei pronto a vivere, sopravvivere e combattere?",
             buttons:{
@@ -54,5 +52,4 @@ const useRoomStore = create<any>()((set) => ({
             enemies: generateEnemies(1,2),
         }
     }
-}))
-export default useRoomStore;
+export default roomData;

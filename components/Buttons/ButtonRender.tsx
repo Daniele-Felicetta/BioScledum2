@@ -1,13 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import useRoomStore from '../datas/room';
+import roomData from '../datas/room';
 import Button from './Button';
 import ButtonAttack from './ButtonAttack';
 import useStore from '../datas/data';
 
 const ButtonRender = () => {
     const {datas, setDatas} = useStore();
-    const {roomData}= useRoomStore();
 
     const counterButton= datas.counter
     const dataR=(roomData as any)?.[counterButton]

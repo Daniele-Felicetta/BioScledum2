@@ -25,10 +25,10 @@ const patStyle:any={
     }, 
     button:{
         opacity: 0.8,
-        padding: 10,
+        padding: 15,
         borderRadius: 5,
-        width:"30%",
-        height:"50"
+        width:"auto",
+        height:"auto" 
     },
 }
 export default patStyle

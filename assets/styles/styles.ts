@@ -42,11 +42,13 @@ const Gstyles:any = {
         width: "100%",
     },
     button:{
-        ...patStyle.button
+        ...patStyle.button,
+        padding: 20,
+        paddingLeft:30,
+        paddingRight:30
     },
     buttonAttack:{
         ...patStyle.button,
-        height:80
     },
     buttonText: {
         color: 'white',

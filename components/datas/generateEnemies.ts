@@ -1,37 +1,38 @@
 import randomName from './names'
+import globalGenres from './enemies'
 
 const generateEnemies=(level:number,quantity:number)=>{
-    const globalGenres:string[]=[ 
-        "bull",
-        "knight",
-    ]
-    let genres:string[];
+    function reduceObject(n = 1) {
+        const keys = Object.entries(globalGenres).slice(-n)
+        return Object.fromEntries(keys)
+    }
 
+    let genres:any={};
     switch(level){
         case 1:{
-            genres=globalGenres.splice(-1)
+            genres = reduceObject(1) ;
             break;
         }
         case 2:{
-            genres=globalGenres;
+            genres= reduceObject(0);
             break;
         }        
         default: console.error("ERROR ON SWITCHING LEVEL");
     }
-
-    const guys=(num:number)=> {
+    const randomGenre=(num:number)=> {
         let guysArr=[];
         for(let i=0; i<num; i++){
-            console.log(guysArr)
-            guysArr.push(genres[Math.floor(Math.random()*genres.length)]) 
+            const type= Object.keys(genres)
+            guysArr.push(type[Math.floor(Math.random()*type.length)]) 
         } 
         return guysArr
     }
 
     const enemiesCreate=()=>{
-        const who = guys(quantity);
+        const who = randomGenre(quantity);
         const names = who.map(() => randomName());
-        return { who, names };
+        const genre = who.map( x => genres[x]);
+        return { who, names, genre };
     }
     return enemiesCreate();
 }

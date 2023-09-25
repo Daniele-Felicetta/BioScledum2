@@ -1,13 +1,12 @@
 import {View,Text,TextInput,TouchableOpacity} from 'react-native';
 import {useState,useRef} from 'react';
 import useStore from "./datas/data";
-import useRoomStore from "./datas/room";
+import roomData from "./datas/room";
 import Gstyles from "../assets/styles/styles";
 import Button from "./Buttons/Button";
 
 const DownEvents=()=>{
     const {datas, setDatas} = useStore();
-    const {roomData}= useRoomStore();
     const counterButton= datas.counter;
     const [playerName,setPlayerName] = useState<string>('');
     return(
@@ -22,6 +21,7 @@ const DownEvents=()=>{
                         value={playerName}
                         onChangeText={setPlayerName}
                         placeholder="Scrivilo qui scemo"
+                        maxLength={12}
                     />
                     
                     <TouchableOpacity 

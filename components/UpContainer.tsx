@@ -3,13 +3,12 @@ import {useEffect, useState} from 'react'
 import Gstyles from '../assets/styles/styles'
 import patStyle from '../assets/styles/patstyle'
 import UpEvents from './UpEvents'
-import useRoomStore from './datas/room'
+import roomData from './datas/room'
 import useStore from './datas/data'
 import Combat from './Combat'
 
 const UpContainer = () => {
     const {datas, setDatas} = useStore();
-    const {roomData}= useRoomStore();
     const counterButton= datas.counter
     const dataR=(roomData as any)?.[counterButton]
     

@@ -2,13 +2,12 @@ import { View, Text} from 'react-native'
 import React from 'react'
 import Gstyles from '../assets/styles/styles'
 import useStore from './datas/data'
-import useRoomStore from './datas/room'
+import roomData from './datas/room'
 import DownEvents from './DownEvents'
 import ButtonRender from './Buttons/ButtonRender'
 
 const DownContainer = () => {
     const {datas, setDatas} = useStore();
-    const {roomData}= useRoomStore();
     const counterButton= datas.counter
     const dataR=(roomData as any)?.[counterButton]
     
