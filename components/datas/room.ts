@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import randomName from './names'
-
+import generateEnemies from './generateEnemies';
 const useRoomStore = create<any>()((set) => ({
+    
     roomData:{
         0: {
             text:"Benvenuto avventuriero sei pronto a vivere, sopravvivere e combattere?",
@@ -51,11 +51,7 @@ const useRoomStore = create<any>()((set) => ({
         6:{
             text:"Questi sono 2 nemici bastardoli.",
             text2:"Adesso devi decidere chi attaccare",
-
-            enemies:{
-                who:["bull", "knight"],
-                names:[randomName(),randomName()]
-            },
+            enemies: generateEnemies(1,2),
         }
     }
 }))

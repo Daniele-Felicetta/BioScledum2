@@ -25,7 +25,7 @@ const DownEvents=()=>{
                     />
                     
                     <TouchableOpacity 
-                        onPress={()=> {setDatas({counter:datas.counter+1, names:{player:playerName}})} } 
+                        onPress={()=> {setDatas({counter:datas.counter+1, playerName:playerName})} } 
                         style={[Gstyles.button, { backgroundColor:'green' }]}
                     >
                         <Text style={Gstyles.buttonText}>Fatto</Text>

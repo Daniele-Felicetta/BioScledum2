@@ -12,7 +12,7 @@ const UpEvents=()=>{
             { counterButton>=2 && counterButton<6 &&   
                 <>
                     {counterButton==5 && 
-                        <Text style={{color:'red',textAlign:'center', fontSize:40, fontWeight:'bold' }}>{datas.names.player}</Text>    
+                        <Text style={{color:'red',textAlign:'center', fontSize:40, fontWeight:'bold' }}>{datas.playerName}</Text>    
                     }
                     <Image source={require('../assets/images/player.png')} style={{width:300, height:300}} />
                 </>
