@@ -7,14 +7,15 @@ import Button from "./Buttons/Button";
 
 const DownEvents=()=>{
     const {datas, setDatas} = useStore();
-    const counterButton= datas.counter;
+    const counter= datas.counter;
     const [playerName,setPlayerName] = useState<string>('');
+    
     return(
         <>
-            {counterButton==4 &&
+            {counter==4 &&
                 <Text style={Gstyles.textTitle}>{playerName}</Text>
             }
-            {counterButton==3 &&
+            {counter==3 &&
                 <>
                     <TextInput
                         style={Gstyles.textInput} 

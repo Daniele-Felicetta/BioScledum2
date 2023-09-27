@@ -4,7 +4,7 @@ const Player = ({size=1}) => {
     const {datas}= useStore();
     return (
         <View>
-            <Text style={{color:'rgb(150,25,150)',textAlign:'center', fontSize:20/(size/200), fontWeight:'bold' }}>{datas.playerName}</Text>    
+            <Text style={{color:'rgb(150,25,150)',textAlign:'center', fontSize:(size/7), fontWeight:'bold' }}>{datas.playerName}</Text>    
             <Image source={require('../assets/images/player.png')} style={{width:size, height:size}} />
         </View>
     )

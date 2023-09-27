@@ -9,9 +9,8 @@ import Combat from './Combat'
 
 const UpContainer = () => {
     const {datas, setDatas} = useStore();
-    const counterButton= datas.counter
-    const dataR=(roomData as any)?.[counterButton]
-    
+    const dataR= datas.dataR;
+   
     return (
         <View style={Gstyles.upContainer}>
             {"enemies"in dataR && <Combat/>}

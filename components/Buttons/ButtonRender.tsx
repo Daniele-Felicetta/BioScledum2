@@ -7,9 +7,7 @@ import useStore from '../datas/data';
 
 const ButtonRender = () => {
     const {datas, setDatas} = useStore();
-
-    const counterButton= datas.counter
-    const dataR=(roomData as any)?.[counterButton]
+    const dataR = datas.dataR
 
     const renderButtons:any=()=>{
         const buttonComponents = [];
