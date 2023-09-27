@@ -3,28 +3,24 @@ import roomData from './room';
 
 const useStore = create<any>()((set) => ({
     datas:{
-        counter:6,
+        counter:5,
         playerName:"Gigi",
-        get dataR() {
-            return (roomData as any)?.[this.counter];
-        },
-        get enemies(){
-            return this.dataR?.enemies
-        },
+        playerImage:require('../../assets/images/player.png'),
+        defaultLifePlayer:200,
 
     },
     setDatas:(newDatas:any)=>set((state:any)=>({
         datas: {...state.datas, ...newDatas},
     })),
     setLife:(id:any,value:any)=>set((state:any)=>{ 
-        const prevArray = [...state.datas.combatDatas.life]
+        const prevArray = [...state.datas.combatDatas.lifeEnemies]
         prevArray[id]= prevArray[id]-value
         const newArray= [...prevArray];
         return{
             datas:{
                 ...state.datas,
                 combatDatas:{
-                    life: newArray
+                    lifeEnemies: newArray
                 }
             }
         }
@@ -33,6 +29,12 @@ const useStore = create<any>()((set) => ({
  
 export default useStore;
 
+export const useRoomDatas = () => {
+    const { counter } = useStore((state) => state.datas);
+    const dataR = (roomData as any)?.[counter];
+    const enemies = dataR?.enemies; 
+    return { dataR, enemies };
+  };
 // {
 //     "genre": [{"image": 2, "life": 200}, {"image": 2, "life": 200}],
 //     "names": ["Piermauro", "Gianumberto"], 

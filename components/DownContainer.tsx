@@ -1,17 +1,13 @@
 import { View, Text} from 'react-native'
-import React from 'react'
 import Gstyles from '../assets/styles/styles'
-import useStore from './datas/data'
-import roomData from './datas/room'
 import DownEvents from './DownEvents'
 import ButtonRender from './Buttons/ButtonRender'
+import { useRoomDatas} from './datas/data';
 
 const DownContainer = () => {
-    const {datas, setDatas} = useStore();
-    const counterButton= datas.counter
-    const dataR=(roomData as any)?.[counterButton]
-    
-  return (
+    const { dataR, enemies } = useRoomDatas();
+
+    return (
     <View style={Gstyles.textContainer}>
         <Text style={Gstyles.text}>{dataR?.text}</Text>
         {"text2" in dataR &&<Text style={Gstyles.text}>{dataR?.text2}</Text>}

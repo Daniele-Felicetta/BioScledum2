@@ -1,13 +1,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import roomData from '../datas/room';
 import Button from './Button';
 import ButtonAttack from './ButtonAttack';
 import useStore from '../datas/data';
+import { useRoomDatas} from '../datas/data';
 
 const ButtonRender = () => {
     const {datas, setDatas} = useStore();
-    const dataR = datas.dataR
+    const { dataR, enemies } = useRoomDatas();
 
     const renderButtons:any=()=>{
         const buttonComponents = [];

@@ -1,19 +1,15 @@
-import { View, Text } from 'react-native'
-import {useEffect, useState} from 'react'
+import { View } from 'react-native'
 import Gstyles from '../assets/styles/styles'
-import patStyle from '../assets/styles/patstyle'
 import UpEvents from './UpEvents'
-import roomData from './datas/room'
-import useStore from './datas/data'
-import Combat from './Combat'
+import Combat from './Combat/Combat'
+import { useRoomDatas} from './datas/data';
 
 const UpContainer = () => {
-    const {datas, setDatas} = useStore();
-    const dataR= datas.dataR;
-   
+    const { dataR, enemies } = useRoomDatas();
+
     return (
         <View style={Gstyles.upContainer}>
-            {"enemies"in dataR && <Combat/>}
+            {"enemies"in dataR && <Combat dataR={dataR} enemies={enemies}/>}
             <UpEvents />
         </View>
     )

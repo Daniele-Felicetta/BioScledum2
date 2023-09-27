@@ -1,14 +1,16 @@
 import { View, Text, TouchableOpacity, useWindowDimensions} from 'react-native'
 import Gstyles from '../../assets/styles/styles';
 import useStore from '../datas/data';
-import roomData from '../datas/room';
+import { useRoomDatas} from '../datas/data';
+
 const ButtonAttack = ({id}:any) => {
     const {datas, setDatas,setLife} = useStore();
+    const { dataR, enemies } = useRoomDatas();
+
     const {combatDatas} = datas;
-    const dataR= datas.dataR
-    const enemies= dataR?.enemies
     const enemyName:string=enemies?.names[id];
-    const guyLife= combatDatas.life[id]
+    const guyLife= combatDatas.lifeEnemies[id];
+
     console.log(guyLife)
     let button=
         <TouchableOpacity 

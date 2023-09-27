@@ -1,17 +1,18 @@
 import { View, Text,Image } from 'react-native'
-import useStore from './datas/data'
-import roomData from './datas/room'
+import useStore from '../datas/data'
+import roomData from '../datas/room'
 import Stats from './Stats'
+import { useRoomDatas} from '../datas/data';
 
 const Enemies = ({size=200}) => {
     const {datas} = useStore();
-    const { enemies, combatDatas} = datas;
+    const {combatDatas} = datas;
+    const { dataR, enemies } = useRoomDatas();
     const who= enemies.who
-    console.log(datas)
 
     const enemiesRender=who.map((enemy:string,id:number)=>{
         const guy=enemies.genre?.[id]
-        const guyLife= combatDatas.life[id]
+        const guyLife= combatDatas.lifeEnemies[id]
        
         return (
             <View key={id} style={{marginBottom:10}}>

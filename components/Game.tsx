@@ -1,5 +1,4 @@
 import { View} from 'react-native'
-import {useEffect} from 'react'
 import Gstyles from '../assets/styles/styles'
 import UpContainer from './UpContainer'
 import DownContainer from './DownContainer'

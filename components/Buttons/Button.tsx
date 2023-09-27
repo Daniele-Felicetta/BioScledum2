@@ -2,6 +2,7 @@ import { Text, TouchableOpacity} from 'react-native'
 import Gstyles from '../../assets/styles/styles';
 import useStore from '../datas/data';
 
+
 const Button=({text, color,nocounter}:any) => {
     const {datas,setDatas}= useStore();
     let button=
