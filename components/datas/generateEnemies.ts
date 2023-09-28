@@ -7,7 +7,7 @@ const generateEnemies=(level:number,quantity:number)=>{
         return Object.fromEntries(keys)
     }
 
-    let genres:any={};
+    let genres:object={};
     switch(level){
         case 1:{
             genres = reduceObject(1) ;
@@ -20,18 +20,18 @@ const generateEnemies=(level:number,quantity:number)=>{
         default: console.error("ERROR ON SWITCHING LEVEL");
     }
     const randomGenre=(num:number)=> {
-        let guysArr=[];
+        let guysArr:string[]=[];
         for(let i=0; i<num; i++){
-            const type= Object.keys(genres)
+            const type:string[]= Object.keys(genres)
             guysArr.push(type[Math.floor(Math.random()*type.length)]) 
         } 
         return guysArr
     }
 
     const enemiesCreate=()=>{
-        const who = randomGenre(quantity);
-        const names = who.map(() => randomName());
-        const genre = who.map( x => genres[x]);
+        const who:string[] = randomGenre(quantity);
+        const names:string[] = who.map(() => randomName());
+        const genre:string[] = who.map( x => genres[x]);
         return { who, names, genre };
     }
     return enemiesCreate();

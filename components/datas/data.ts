@@ -1,7 +1,22 @@
 import { create } from 'zustand'
 import roomData from './room';
 
-const useStore = create<any>()((set) => ({
+interface StoreData {
+    datas: {
+      counter: number;
+      playerName: string;
+      playerImage: number; 
+      defaultLifePlayer: number;
+      combatDatas?: {
+        lifeEnemies: number[];
+      };
+    };
+    setDatas: (newDatas: object) => void;
+    setLife: (id: number, value: number) => void;
+  }
+
+
+const useStore = create<StoreData>()((set) => ({
     datas:{
         counter:5,
         playerName:"Gigi",
@@ -9,13 +24,16 @@ const useStore = create<any>()((set) => ({
         defaultLifePlayer:200,
 
     },
-    setDatas:(newDatas:any)=>set((state:any)=>({
+    setDatas:(newDatas:object)=>set((state)=>({
         datas: {...state.datas, ...newDatas},
     })),
-    setLife:(id:any,value:any)=>set((state:any)=>{ 
-        const prevArray = [...state.datas.combatDatas.lifeEnemies]
-        prevArray[id]= prevArray[id]-value
-        const newArray= [...prevArray];
+    setLife:(id:number,value:number)=>set((state)=>{
+        let newArray:number[]=[] 
+        if(state.datas.combatDatas){
+            const prevArray = [...state.datas.combatDatas.lifeEnemies]
+            prevArray[id]= prevArray[id]-value
+            newArray= [...prevArray];
+        }
         return{
             datas:{
                 ...state.datas,
@@ -31,7 +49,7 @@ export default useStore;
 
 export const useRoomDatas = () => {
     const { counter } = useStore((state) => state.datas);
-    const dataR = (roomData as any)?.[counter];
+    const dataR = (roomData as object)?.[counter];
     const enemies = dataR?.enemies; 
     return { dataR, enemies };
   };
